@@ -1,0 +1,20 @@
+[package]
+name = "nextcloud-discord-bridge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+serenity = "0.12"
+songbird = { version = "0.4", features = ["builtin-queue", "receive", "driver", "gateway"] }
+webrtc = "0.10"
+anyhow = "1.0"
+dotenv = "0.15"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio-tungstenite = { version = "0.21", features = ["native-tls"] }
+tungstenite = "0.21"
+futures-util = "0.3"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+url = "2.5"
+bytes = "1.0"
