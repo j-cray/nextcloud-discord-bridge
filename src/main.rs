@@ -51,17 +51,20 @@ async fn main() -> anyhow::Result<()> {
 
     // Initialize Bridge Session
     // In a real app, these would come from config or command arguments
-    let guild_id = env::var("DISCORD_GUILD_ID")
-        .unwrap_or("0".to_string())
+    let guild_id_str = env::var("DISCORD_GUILD_ID").unwrap_or("0".to_string());
+
+    let guild_id = guild_id_str
+        .trim()
         .parse::<u64>()
         .map(serenity::model::id::GuildId::new)
-        .unwrap_or(serenity::model::id::GuildId::new(0));
+        .unwrap_or(serenity::model::id::GuildId::new(1)); // Use 1 as dummy to avoid panic if parse fails
 
     let channel_id = env::var("DISCORD_CHANNEL_ID")
         .unwrap_or("0".to_string())
+        .trim()
         .parse::<u64>()
         .map(serenity::model::id::ChannelId::new)
-        .unwrap_or(serenity::model::id::ChannelId::new(0));
+        .unwrap_or(serenity::model::id::ChannelId::new(1));
 
     // Check if valid (assuming > 0 is valid)
     if guild_id.get() == 0 || channel_id.get() == 0 {

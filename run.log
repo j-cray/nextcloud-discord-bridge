@@ -1,0 +1,46 @@
+warning: Git tree '/home/icarus/nextcloud-discord-bridge' is dirty
+Nextcloud Discord Bridge DevShell
+   Compiling nextcloud-discord-bridge v0.1.0 (/home/icarus/nextcloud-discord-bridge)
+warning: unused import: `Context`
+ --> src/nextcloud/webrtc.rs:1:22
+  |
+1 | use anyhow::{Result, Context};
+  |                      ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Context`
+ --> src/bridge.rs:1:22
+  |
+1 | use anyhow::{Result, Context};
+  |                      ^^^^^^^
+
+warning: unused imports: `Call` and `model::payload::Speaking`
+ --> src/bridge.rs:4:5
+  |
+4 |     Call,
+  |     ^^^^
+...
+7 |     model::payload::Speaking,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused variable: `e`
+  --> src/bridge.rs:53:24
+   |
+53 |             if let Err(e) = self.track.write_sample(&sample).await {
+   |                        ^ help: if this is intentional, prefix it with an underscore: `_e`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `nextcloud-discord-bridge` (bin "nextcloud-discord-bridge") generated 4 warnings (run `cargo fix --bin "nextcloud-discord-bridge" -p nextcloud-discord-bridge` to apply 4 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.43s
+     Running `target/debug/nextcloud-discord-bridge`
+Starting Discord Bridge Client...
+DEBUG: Password loaded. Length: 64, Starts with: 'Xy..'
+Initializing Nextcloud Signaling...
+Fetching room details from: https://cloud.bitnorth.ca/ocs/v2.php/apps/spreed/api/v4/room/htyecaqy
+DEBUG: Full JSON Body: {"ocs":{"data":{"actorId":"nextbridge","actorType":"users","attendeeId":10,"attendeePermissions":0,"attendeePin":"","avatarVersion":"b17bd89d","breakoutRoomMode":0,"breakoutRoomStatus":0,"callFlag":0,"callPermissions":0,"callRecording":0,"callStartTime":0,"canDeleteConversation":false,"canEnableSIP":false,"canLeaveConversation":true,"canStartCall":true,"defaultPermissions":255,"description":"discord bridge, for use with nextcloud-talk-ps5","displayName":"discord-bridge","hasCall":false,"hasPassword":true,"id":8,"isArchived":false,"isCustomAvatar":false,"isFavorite":false,"isImportant":false,"isSensitive":false,"lastActivity":1768019407,"lastCommonReadMessage":329,"lastMessage":{"actorDisplayName":"Jake Wray","actorId":"jake","actorType":"users","expirationTimestamp":0,"id":330,"isReplyable":false,"markdown":false,"message":"{actor} added you","messageParameters":{"actor":{"id":"jake","mention-id":"jake","name":"Jake Wray","type":"user"},"user":{"id":"nextbridge","mention-id":"nextbridge","name":"NextBridge Discord Connection","type":"user"}},"messageType":"system","reactions":{},"referenceId":"","systemMessage":"user_added","threadId":330,"timestamp":1768019407,"token":"htyecaqy"},"lastPing":0,"lastReadMessage":329,"listable":1,"liveTranscriptionLanguageId":"","lobbyState":0,"lobbyTimer":0,"mentionPermissions":0,"messageExpiration":0,"name":"discord-bridge","notificationCalls":1,"notificationLevel":2,"objectId":"","objectType":"","participantFlags":0,"participantType":3,"permissions":255,"readOnly":0,"recordingConsent":0,"sessionId":"0","sipEnabled":0,"token":"htyecaqy","type":3,"unreadMention":false,"unreadMentionDirect":false,"unreadMessages":0},"meta":{"message":"OK","status":"ok","statuscode":200}}}
+Error: Failed to connect to Signaling
+
+Caused by:
+    No signaling info found in response
